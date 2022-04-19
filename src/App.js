@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MathQuestion from './mathquestion';
+import MathResult from './result';
 
-const value1 = Math.floor(Math.random() * 100);
-const value2 = Math.floor(Math.random() * 100);
-const value3 = Math.floor(Math.random() * 100);
-const proposedAnswer = Math.floor(Math.random() * 3) + value1 + value2 + value3;
-const numQuestions = 0;
-const numCorrect = 0;
+//const value1 = Math.floor(Math.random() * 100);
+//const value2 = Math.floor(Math.random() * 100);
+//const value3 = Math.floor(Math.random() * 100);
+//const proposedAnswer = Math.floor(Math.random() * 3) + value1 + value2 + value3;
+//const numQuestions = 0;
+//const numCorrect = 0;
 
 class App extends Component {
   render() {
@@ -20,13 +22,15 @@ class App extends Component {
         <div className="game">
           <h2>Mental Math</h2>
           <div className="equation">
-            <p className="text">{`${value1} + ${value2} + ${value3} = ${proposedAnswer}`}</p>
+
+            <MathQuestion  />
+
           </div>
-          <button>True</button>
-          <button>False</button>
-          <p className="text">
-            Your Score: {numCorrect}/{numQuestions}
-          </p>
+          <MathResult></MathResult>
+         
+
+        
+
         </div>
       </div>
     );
