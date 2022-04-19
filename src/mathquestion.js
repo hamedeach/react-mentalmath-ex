@@ -13,41 +13,43 @@ class MathQuestion extends Component {
             value3: eqValuesArr[2],
             proposedAnswer: eqValuesArr[3],
             score:0,
-            noofQuestions:0
+            questions:0
 
         }
     }
 
     updateState = (newEqu) => {
-     
-        this.setState((currentstate) => 
-            (
-                {
 
-                    value1: newEqu[0],
-                    value2: newEqu[1],
-                    value3: newEqu[2],
-                    proposedAnswer: newEqu[3],
-                })
-          //  console.log("current state :" + currentstate.value1);
-        
+        this.setState((currentstate) =>
+        (
+            {
+
+                value1: newEqu[0],
+                value2: newEqu[1],
+                value3: newEqu[2],
+                proposedAnswer: newEqu[3],
+                score:newEqu[4],
+                questions:(currentstate.questions+1)
+            })
+
+
         );
-      
+
 
 
     }
 
 
     solveEquation = event => {
-        let { value1, value2, value3, proposedAnswer,score,questions } = this.state;
-        
-        const correctAnswer = value1+value2+value3;
-
-        (correctAnswer==proposedAnswer)?  score+=1:score+=0;
-        alert(score);
+        const { value1, value2, value3, proposedAnswer } = this.state;
+        const correctAnswer = value1 + value2 + value3;
+        let score = this.state.score;
+        (correctAnswer == proposedAnswer) ? score++  : score += 0;
+     
         const eqValuesArr = this.makeNewQuestion();
+        eqValuesArr.push(score)
         this.updateState(eqValuesArr);
-       
+
 
 
     }
@@ -71,7 +73,11 @@ class MathQuestion extends Component {
                 </p>
                 <button name="true" onClick={this.solveEquation}>True</button>
                 <button name="false" onClick={this.solveEquation}>False</button>
-                
+                <p className="text">
+                    Your Score: {this.state.score}/{this.state.questions}
+
+                </p>
+
             </div>
 
         );

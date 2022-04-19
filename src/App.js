@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MathQuestion from './mathquestion';
-import MathResult from './result';
+
 
 //const value1 = Math.floor(Math.random() * 100);
 //const value2 = Math.floor(Math.random() * 100);
@@ -26,7 +26,7 @@ class App extends Component {
             <MathQuestion  />
 
           </div>
-          <MathResult></MathResult>
+         
          
 
         
